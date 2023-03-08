@@ -1,43 +1,62 @@
-### Как запустить проект:
+# API для приложения "Yatube"
+"Yatube" - cоциальная сеть для публикации личных дневников. На сайте можно создать свою страницу и размещать записи. Пользователи сайта могут заходить на чужие страницы, подписываться на авторов и комментировать их записи.
+ 
+## Инструкции для развертывания проекта на локальном сервере
 
-Клонировать репозиторий и перейти в него в командной строке:
+### 1) Скачать проект
 
-```
-git clone https://github.com/yandex-praktikum/kittygram.git
-```
+Клонировать проект с github. Ссылка для клонирования: git@github.com:PentiukPavel/api_final_yatube.git <br>
 
-```
-cd kittygram
-```
 
-Cоздать и активировать виртуальное окружение:
+### 2) Создать виртуальное окружение
 
-```
-python3 -m venv env
-```
+В корневой папка создать виртуальное окружение:
 
 ```
-source env/bin/activate
+py -3 -m venv venv
+```
+
+Активировать виртуальное окружение:
+
+```
+source venv/Scripts/activate
 ```
 
 Установить зависимости из файла requirements.txt:
 
 ```
-python3 -m pip install --upgrade pip
-```
-
-```
 pip install -r requirements.txt
 ```
 
-Выполнить миграции:
+Создать файл .env, в котором в переменной SECRET разместить секретный ключа проекта.<br>
+
+
+### 3) Запустить проект
+
+В папке с файлом manage.py (yatube_api) выполнить следующие команды для выполнения миграций:
 
 ```
-python3 manage.py migrate
+python manage.py makemigrations
+python manage.py migrate
+```
+
+Создать суперюзера:
+
+```
+python manage.py createsuperuser
 ```
 
 Запустить проект:
 
 ```
-python3 manage.py runserver
+python manage.py runserver
 ```
+<br>
+
+## Системные требования
+### Python==3.7
+
+## Стек
+### Django
+### Django REST Framework
+### SQLite
